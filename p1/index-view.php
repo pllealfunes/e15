@@ -16,7 +16,13 @@
         <button>Process</button>
     </form>
     <?php if (isset($userInput)) { ?>
+    <h3>String</h3>
     <?php echo $userInput; ?>
+    <h3>Is Palindrome?</h3>
+    <?php echo $isPalindrome; ?>
+    <h3>Vowel Count</h3>
+    <?php echo $vowelCount; ?>
+    <h3>Letter Shift</h3>
     <?php } ?>
 </body>
 
