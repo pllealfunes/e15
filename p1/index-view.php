@@ -9,17 +9,15 @@
 </head>
 
 <body>
-    <h1>Project 1</h1>
-    <ul>
-        <li>String: <?php echo $inputString; ?></li>
-        <li>Is big word?
-            <?php if ($isBigWord) { ?>
-            Yes
-            <?php } else { ?>
-            No
-            <?php } ?>
-        </li>
-    </ul>
+    <h1>String Processor - E15 Project 1</h1>
+    <form method='POST' action='process.php'>
+        <label for='userInput'>Enter a String</label>
+        <input type='text' name='userInput' id='userInput'>
+        <button>Process</button>
+    </form>
+    <?php if (isset($userInput)) { ?>
+    <?php echo $userInput; ?>
+    <?php } ?>
 </body>
 
 </html>
