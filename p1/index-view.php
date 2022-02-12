@@ -23,6 +23,7 @@
     <h3>Vowel Count</h3>
     <?php echo $vowelCount; ?>
     <h3>Letter Shift</h3>
+    <?php echo $shiftLetters; ?>
     <?php } ?>
 </body>
 

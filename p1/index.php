@@ -8,7 +8,7 @@ if (isset($_SESSION['results'])) {
     $userInput = $results['userInput'];
     $isPalindrome = $results['isPalindrome'];
     $vowelCount = $results['vowelCount'];
-
+    $shiftLetters = $results['shiftLetters'];
     
     $_SESSION['results'] = null;
 }
