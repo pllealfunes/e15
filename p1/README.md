@@ -1,6 +1,6 @@
 # Project 1
 + By: Paula Leal Funes
-+ URL: e15p1.lefthandedcat.me
++ URL: http://e15p1.lefthandedcat.me/
 
 ## Outside resources
 * [PHP preg_replace](https://www.php.net/manual/en/function.preg-replace.php)
