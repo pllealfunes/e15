@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class SearchController extends Controller
 {
 
-public function userChoice(Request $request){
+public function searchType(Request $request){
     $request->validate([
         'searchType' => 'required'
     ]);

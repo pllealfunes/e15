@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <form method='GET' action='/userChoice'>
+    <form method='GET' action='/searchType'>
         <fieldset>
             <label>
                 Search type:
@@ -17,8 +17,6 @@
             <label for='searchType'>3 Random suggestions</label>
 
         </fieldset>
-
-        <button type='submit' class='btn btn-primary'>Search</button>
 
     </form>
 
