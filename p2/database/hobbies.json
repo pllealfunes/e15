@@ -1,6 +1,6 @@
 {
     "categories": {
-        "physical-hobbies": [
+        "physical": [
             "basketball",
             "golf",
             "running",
@@ -54,7 +54,7 @@
             "aerobics",
             "sightseeing"
         ],
-        "creative-hobbies": [
+        "creative": [
             "card making",
             "quilling",
             "mod podge",
@@ -134,7 +134,7 @@
             "wood carving",
             "thrifting"
         ],
-        "mental-hobbies": [
+        "mental": [
             "reading",
             "decorating a planner",
             "journaling",
@@ -155,7 +155,7 @@
             "quote collecting",
             "start a gratitude list"
         ],
-        "musical-hobbies": [
+        "musical": [
             "singing",
             "danicng",
             "learning to play classical, bass, or electric guitar",
@@ -171,7 +171,7 @@
             "listening to music",
             "learning about various musicians/music genres"
         ],
-        "food-hobbies": [
+        "food": [
             "cooking",
             "baking",
             "wine tasting",
@@ -180,7 +180,7 @@
             "collect dessert plates, tea cups, china patterns, mugs, etc",
             "cookbooks or magazines"
         ],
-        "collecting-hobbies": [
+        "collecting": [
             "stickers",
             "baseball cards",
             "sporting event tickets",
@@ -212,7 +212,7 @@
             "stamps",
             "sheet music"
         ],
-        "games-hobbies": [
+        "games": [
             "bingo",
             "online games",
             "sudoku",
