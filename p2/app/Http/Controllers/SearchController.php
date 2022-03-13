@@ -8,18 +8,6 @@ use Illuminate\Http\Request;
 
 class SearchController extends Controller
 {
-
-public function searchType(Request $request){
-    $request->validate([
-        'searchType' => 'required'
-    ]);
-
-    # If validation fails, it will redirect back to `/`
-
-    # Get the form input values (default to null if no values exist)
-    $searchType = $request->input('searchType', null);
-    return redirect('/') -> withInput();
-    }
 public function search(Request $request)
     {
 
@@ -28,7 +16,7 @@ public function search(Request $request)
             'suggestionNumber' => 'required|integer|between:1,10',
         ]);
 
-       # Get the form nput values (default to null if no values exist)
+       # Get the form input values (default to null if no values exist)
     $categories = $request->input('categories', null);
     $suggestionNumber = $request->input('suggestionNumber', null);
 
@@ -52,13 +40,19 @@ public function search(Request $request)
         array_push($searchResults,$filterCategory[$arrayResults]);
     }
     }
-   //dump($searchResults);
-
-    
+  
+   $randQuote = null;
+   if( $request->has('inspirationalQuote') ){
+    $quotesData = file_get_contents(database_path('quotes.json'));
+        $quotes = json_decode($quotesData, true);
+        $randQuote = $quotes[array_rand($quotes)];
+}
     # Redirect back to the form with data/results stored in the session
     # Ref: https://laravel.com/docs/responses#redirecting-with-flashed-session-data
+  
     return redirect('/')->with([
-        'searchResults' => $searchResults
+        'searchResults' => $searchResults,
+        'inspirationalQuote' => $randQuote
     ]) -> withInput();
-    }
+}
 }

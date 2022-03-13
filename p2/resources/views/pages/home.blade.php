@@ -2,25 +2,6 @@
 
 @section('content')
 
-    <form method='GET' action='/searchType'>
-        <fieldset>
-            <label>
-                Search type:
-            </label>
-
-            <input type='radio' name='searchType' id='byCategory' value='byCategory'
-                {{ old('searchType', 'byCategory') == 'byCategory' ? 'checked' : '' }}>
-            <label for='searchType'>By Category</label>
-
-            <input type='radio' name='searchType' id='randomSuggestion' value='randomSuggestion'
-                {{ old('randomSuggestion') == 'randomSuggestion' ? 'checked' : '' }}>
-            <label for='searchType'>3 Random suggestions</label>
-
-        </fieldset>
-
-    </form>
-
-
     <form method='GET' action='/search'>
         <h2>Search for a hobby under a specific category.</h2>
 
@@ -28,21 +9,25 @@
 
             <label for="categories">Choose a Category:</label>
 
-            <select name="categories" id="categories" value='{{ old('categories') }}'>
-                <option value="physical" value='{{ old('categories') == 'physical' ? 'selected' : '' }}'>Physical
-                </option>
-                <option value="creative" value='{{ old('categories') == 'creative' ? 'selected' : '' }}'>Creative
-                </option>
-                <option value="mental" value='{{ old('categories') == 'mental' ? 'selected' : '' }}'>Mental</option>
-                <option vallue="food" value='{{ old('categories') == 'food' ? 'selected' : '' }}'>Food</option>
-                <option value="collecting" value='{{ old('categories') == 'collecting' ? 'selected' : '' }}'>Collecting
-                </option>
-                <option value="games" value='{{ old('categories') == 'games' ? 'selected' : '' }}'>Games/Puzzles</option>
+            <select name="categories" id="categories" value="'{{ old('categories') }}'">
+                <option selected disabled>Select a Category</option>
+                <option value="physical">Physical</option>
+                <option value="creative">Creative</option>
+                <option value="mental">Mental</option>
+                <option value="food">Food</option>
+                <option value="collecting">Collecting</option>
+                <option value="games">Games/Puzzles</option>
             </select>
 
-            <label for=' sugesstionNumber'>
+            <label for="sugesstionNumber">
                 Enter the amount of suggestions you want:
-                <input type='text' name='suggestionNumber' value='{{ old('suggestionNumber') }}'>
+                <input type="text" name="suggestionNumber" value='{{ old('suggestionNumber') }}'>
+            </label>
+
+            <label for="inspirationalQuote">
+                Want a motivational quote? Yes!
+                <input type="checkbox" name="inspirationalQuote" value="yes" id='inspirationalQuote'
+                    {{ old('inspirationalQuote') == 'yes' ? 'checked' : '' }}>
             </label>
         </fieldset>
 
@@ -76,4 +61,10 @@
             </div>
         @endif
     @endif
+
+    @if (!is_null($inspirationalQuote))
+        <div>{{ $inspirationalQuote['text'] }}</div>
+        <div>{{ $inspirationalQuote['author'] }}</div>
+    @endif
+
 @endsection

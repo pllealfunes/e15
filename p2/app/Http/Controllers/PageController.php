@@ -15,7 +15,8 @@ public function home()
         # Ref: https://laravel.com/docs/responses#redirecting-with-flashed-session-data
 
         return view('pages/home',[
-            'searchResults' => session('searchResults', null)
+            'searchResults' => session('searchResults', null),
+            'inspirationalQuote' => session('inspirationalQuote', null)
         ]);
     }
 }
