@@ -9,14 +9,17 @@
 
             <label for="categories">Choose a Category:</label>
 
-            <select name="categories" id="categories" value="'{{ old('categories') }}'">
+            <select name="categories" id="categories">
                 <option selected disabled>Select a Category</option>
-                <option value="physical">Physical</option>
-                <option value="creative">Creative</option>
-                <option value="mental">Mental</option>
-                <option value="food">Food</option>
-                <option value="collecting">Collecting</option>
-                <option value="games">Games/Puzzles</option>
+                <option value="physical" {{ old('categories') == 'physical' ? 'selected' : '' }}>Physical
+                </option>
+                <option value="creative" {{ old('categories') == 'creative' ? 'selected' : '' }}>Creative
+                </option>
+                <option value="mental" {{ old('categories') == 'mental' ? 'selected' : '' }}>Mental</option>
+                <option value="food" {{ old('categories') == 'food' ? 'selected' : '' }}>Food</option>
+                <option value="collecting" {{ old('categories') == 'collecting' ? 'selected' : '' }}>Collecting
+                </option>
+                <option value="games" {{ old('categories') == 'games' ? 'selected' : '' }}>Games/Puzzles</option>
             </select>
 
             <label for="sugesstionNumber">
