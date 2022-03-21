@@ -12,7 +12,6 @@ class PageController extends Controller
 public function home()
     {
         # Redirect back to the form with data/results stored in the session
-        # Ref: https://laravel.com/docs/responses#redirecting-with-flashed-session-data
 
         return view('pages/home',[
             'searchResults' => session('searchResults', null),

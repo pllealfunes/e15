@@ -3,7 +3,7 @@
 + Production URL: http://e15p2.lefthandedcat.me/
 
 ## Hobbyist
-A simple way to explore new hobbies. Choose to either get recommendations under a specific category or have 3 random recommendations displayed from random categories.
+A simple way to explore new hobbies. Choose a category to explore and the amount of suggestions you would like. You can also choose to have motivational quote added to your results.
 
 ## Outside resources
 * [Where I got the list of Hobbies](https://www.burlapandblue.com/list-of-hobbies/)
