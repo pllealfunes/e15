@@ -33,7 +33,7 @@
             </div>
 
             <div class="form-check row my-5">
-                <label for="inspirationalQuote form-check-label col-form-label">
+                <label for="inspirationalQuote" class="form-check-label col-form-label">
                     Want a motivational quote? Yes!
                     <input type="checkbox" class="form-check-input" name="inspirationalQuote" value="yes"
                         id='inspirationalQuote' {{ old('inspirationalQuote') == 'yes' ? 'checked' : '' }}>
