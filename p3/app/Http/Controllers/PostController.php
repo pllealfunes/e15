@@ -14,6 +14,10 @@ class PostController extends Controller
     * GET /posts/create
     * Display the form to add a new post
     */
+    public function create(Request $request)
+    {
+        return view('/posts/create');
+    }
  
     /**
     * POST /posts
@@ -31,7 +35,7 @@ class PostController extends Controller
         $post->title = $request->title;
         $post->category = $request->category;
         $post->post = $request->post;
-        $post->user_id = $request->user();
+        $post->user_id = $request->user()->id;
         $post->save();
 
         
@@ -62,12 +66,12 @@ class PostController extends Controller
         $comment = Comment::where('post_id', '=', $id)->get();
 
         if (!$post) {
-            return redirect('/')->with(['flash-alert' => 'Post not found.']);
+            return redirect('/posts/show')->with(['flash-alert' => 'Post not found.']);
         }
 
         //$onList = $post->users()->where('user_id', $request->user()->id)->count() >= 1;
 
-        return view('/show', [
+        return view('/posts/show', [
             'post' => $post,
             'comment' => $comment
         ]);
