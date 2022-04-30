@@ -18,16 +18,16 @@
 
         <label for='category'>* Category</label>
         <select test='category-dropdown' name='category'>
-            <option value=''>Choose one...</option>
-            <option value=" physical" {{ old('categories') == 'physical' ? 'selected' : '' }}>Physical
+            <option selected disabled>Choose one...</option>
+            <option value=" physical" {{ old('category') == 'physical' ? 'selected' : '' }}>Physical
             </option>
-            <option value="creative" {{ old('categories') == 'creative' ? 'selected' : '' }}>Creative
+            <option value="creative" {{ old('category') == 'creative' ? 'selected' : '' }}>Creative
             </option>
-            <option value="mental" {{ old('categories') == 'mental' ? 'selected' : '' }}>Mental</option>
-            <option value="food" {{ old('categories') == 'food' ? 'selected' : '' }}>Food</option>
-            <option value="collecting" {{ old('categories') == 'collecting' ? 'selected' : '' }}>Collecting
+            <option value="mental" {{ old('category') == 'mental' ? 'selected' : '' }}>Mental</option>
+            <option value="food" {{ old('category') == 'food' ? 'selected' : '' }}>Food</option>
+            <option value="collecting" {{ old('category') == 'collecting' ? 'selected' : '' }}>Collecting
             </option>
-            <option value="games" {{ old('categories') == 'games' ? 'selected' : '' }}>Games/Puzzles</option>
+            <option value="games" {{ old('category') == 'games' ? 'selected' : '' }}>Games/Puzzles</option>
         </select>
         @include('includes.error-field', ['fieldName' => 'category'])
 

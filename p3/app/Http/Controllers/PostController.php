@@ -58,9 +58,9 @@ class PostController extends Controller
 
     /**
      * GET /posts/{id}
-     * Show the details for an individual post
+     * Show the details for an individual post with their comments
      */
-    public function show(Request $request, $id)
+    public function show($id)
     {
         $post = Post::find($id);
         $comment = Comment::where('post_id', '=', $id)->get();
@@ -68,8 +68,6 @@ class PostController extends Controller
         if (!$post) {
             return redirect('/posts/show')->with(['flash-alert' => 'Post not found.']);
         }
-
-        //$onList = $post->users()->where('user_id', $request->user()->id)->count() >= 1;
 
         return view('/posts/show', [
             'post' => $post,

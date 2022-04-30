@@ -22,22 +22,20 @@
                 <li><a href='/books'>All Books</a></li>
                 <li><a href='/list'>Your list</a></li>
                 <li><a href='/contact'>Contact</a></li>
-                <li>
-                    @if (!Auth::user())
-                        <a href='/login' test='login-link'>Login</a>
-                    @else
-                <li><a href='/posts/create' test='newpost-link'>New Post</a></li>
-                <a href='/posts/create' test='newpost-link'>New Post</a>
-                <form method='POST' id='logout' action='/logout'>
-                    {{ csrf_field() }}
+                @if (!Auth::user())
+                    <a href='/login' test='login-link'>Login</a>
+                @else
+                    <li><a href='/posts/create' test='newpost-link'>New Post</a></li>
+                    <form method='POST' id='logout' action='/logout'>
+                        {{ csrf_field() }}
 
-                    {{-- Codeception can’t invoke our JavaScript so instead of a link thta acts as a submit button, we'll use a button that's styled like a link to submit this form.
+                        {{-- Codeception can’t invoke our JavaScript so instead of a link thta acts as a submit button, we'll use a button that's styled like a link to submit this form.
                         <a href='#' onClick='document.getElementById("logout").submit();'>Logout</a> --}}
 
-                    <button type='submit' class='button-link' test='logout-button'>
-                        Logout
-                    </button>
-                </form>
+                        <button type='submit' class='button-link' test='logout-button'>
+                            Logout
+                        </button>
+                    </form>
                 @endif
                 </li>
             </ul>
