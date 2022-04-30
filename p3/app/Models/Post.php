@@ -9,13 +9,8 @@ class Post extends Model
 {
     use HasFactory;
     
-
-    public function users()
-    {
-
-        return $this->belongsToMany('App\Models\User')
-        ->withTimestamps() 
-        ->withPivot('comments'); 
+    public function users() {
+        return $this->belongsToMany(User::class, 'comments');
     }
 
 }

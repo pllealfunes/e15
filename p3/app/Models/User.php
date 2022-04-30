@@ -45,8 +45,7 @@ class User extends Authenticatable
 
     public function posts()
     {
-        return $this->belongsToMany('App\Models\Book')
-        ->withTimestamps()
-        ->withPivot('comments');
+        
+    return $this->belongsToMany(Post::class, 'comments');
     }
 }
