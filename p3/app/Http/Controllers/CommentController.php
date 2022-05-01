@@ -31,4 +31,21 @@ class CommentController extends Controller
         
         return redirect()->back()->with(['flash-alert' => 'Your comment was added.']);
     }
+
+    public function destroy($id)
+    {
+        $comment = Comment::find($id);
+
+        # Before we delete this post we first have to delete
+        # any relationships connected to this user
+
+        $comment->users()->dissociate();
+
+        $comment->delete();
+
+        return redirect()->back()->with([
+            'flash-alert' => 'Your comment was removed.'
+        ]);
+    }
+
 }

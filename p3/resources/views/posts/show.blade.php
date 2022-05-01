@@ -17,6 +17,14 @@
 
         <p class='post'>
             {{ $post->post }}
+            @if ($post->user_id == Auth::user()->id)
+                <form action='/posts/{{ $post->id }}/delete' method="POST">
+                    {{ csrf_field() }}
+                    {{ method_field('DELETE') }}
+
+                    <button type='submit' class='btn btn-danger btn-small' test='confirm-delete-button'>Delete</button>
+                </form>
+            @endif
         </p>
 
         <h2>Comments</h2>
@@ -47,7 +55,15 @@
                 <ul>
                     @foreach ($comment as $comment)
                         <li>{{ $comment->comment }} - by {{ $comment->user_id }}</li>
-                        @if
+                        @if ($comment->user_id == Auth::user()->id)
+                            <form action='/comments/{{ $comment->id }}/delete' method="POST">
+                                {{ csrf_field() }}
+                                {{ method_field('DELETE') }}
+
+                                <button type='submit' class='btn btn-danger btn-small'
+                                    test='confirm-delete-button'>Delete</button>
+                            </form>
+                        @endif
                     @endforeach
                 </ul>
         </div>

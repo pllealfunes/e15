@@ -49,10 +49,20 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::orderBy('created_at', 'ASC')->get();
+        $posts = Post::orderBy('created_at', 'DESC')->get();
+
+        $categories = [
+           "Physical",
+           "Creative",
+           "Mental",
+           "Food",
+           "Collecting",
+           "Games"
+        ];
         
         return view('/welcome', [
-            'posts' => $posts
+            'posts' => $posts,
+            'categories' => $categories
         ]);
     }
 
@@ -82,7 +92,7 @@ class PostController extends Controller
     */
     public function delete($id)
     {
-        $post = Post::findBySlug($id);
+        $post = Post::find($id);
 
         if (!$post) {
             return redirect('/posts')->with([
@@ -99,7 +109,7 @@ class PostController extends Controller
     */
     public function destroy($id)
     {
-        $post = Post::findBySlug($id);
+        $post = Post::find($id);
 
         # Before we delete this post we first have to delete
         # any relationships connected to this user
@@ -108,16 +118,14 @@ class PostController extends Controller
 
         $post->delete();
 
-        return redirect('/posts')->with([
-            'flash-alert' => '“' . $post->title . '” was removed.'
-        ]);
+        return redirect('/');
     }
 
     /**
      * GET /posts/filter
      */
-    public function filter($category, $subcategory)
+    public function filter()
     {
-        return 'Show all books in these categories: ' . $category . ' , ' . $subcategory;
+        
     }
 }
