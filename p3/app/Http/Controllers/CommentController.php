@@ -3,13 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Author;
 use App\Models\Post;
 use App\Models\Comment;
+use App\Models\User;
 
 class CommentController extends Controller
 {
-
 /**
     * POST /comments
     * Process the form for adding a new comment

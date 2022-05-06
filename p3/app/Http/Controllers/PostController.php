@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Author;
 use App\Models\Post;
 use App\Models\Comment;
+use App\Models\User;
 //use App\Actions\Book\StoreNewBook;
 
 class PostController extends Controller
@@ -73,7 +74,14 @@ class PostController extends Controller
     public function show($id)
     {
         $post = Post::find($id);
-        $comment = Comment::where('post_id', '=', $id)->get();
+        $postAuthor = User::where('id','=',$post->user_id)->first();
+
+        $comments = Comment::where('post_id', '=', $id)->get();
+
+        $commentAuthor = '';
+        foreach ($comments as $comment) {
+            $commentAuthor = User::where('id','=', $comment->user_id)->first();
+        }
 
         if (!$post) {
             return redirect('/posts/show')->with(['flash-alert' => 'Post not found.']);
@@ -81,7 +89,9 @@ class PostController extends Controller
 
         return view('/posts/show', [
             'post' => $post,
-            'comment' => $comment
+            'postAuthor' => $postAuthor,
+            'comments' => $comments,
+            'commentAuthor' => $commentAuthor,
         ]);
     }
 

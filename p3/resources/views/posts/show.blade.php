@@ -10,14 +10,14 @@
         Post not found. <a href='/'>Check out the other posts...</a>
     @else
         <h1>{{ $post->title }}</h1>
-        <p>Written by: {{ $post->user_id }}</p>
+        <p>Written by: {{ $postAuthor->name }}</p>
         <p>Category: {{ $post->category }}
         <p>
 
 
         <p class='post'>
             {{ $post->post }}
-            @if ($post->user_id == Auth::user()->id)
+            @if (Auth::user() && $post->user_id == Auth::user()->id)
                 <form action='/posts/{{ $post->id }}/delete' method="POST">
                     {{ csrf_field() }}
                     {{ method_field('DELETE') }}
@@ -51,11 +51,11 @@
         </form>
 
         <div id='comments'>
-            @if (count($comment) > 0)
+            @if (count($comments) > 0)
                 <ul>
-                    @foreach ($comment as $comment)
-                        <li>{{ $comment->comment }} - by {{ $comment->user_id }}</li>
-                        @if ($comment->user_id == Auth::user()->id)
+                    @foreach ($comments as $comment)
+                        <li>{{ $comment->comment }} - by {{ $commentAuthor->name }}</li>
+                        @if (Auth::user() && $comment->user_id == Auth::user()->id)
                             <form action='/comments/{{ $comment->id }}/delete' method="POST">
                                 {{ csrf_field() }}
                                 {{ method_field('DELETE') }}
