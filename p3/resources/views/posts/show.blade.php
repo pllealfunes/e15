@@ -54,7 +54,7 @@
             @if (count($comments) > 0)
                 <ul>
                     @foreach ($comments as $comment)
-                        <li>{{ $comment->comment }} - by {{ $commentAuthor->name }}</li>
+                        <li>{{ $comment->comment }} - by {{ $comment->users }}</li>
                         @if (Auth::user() && $comment->user_id == Auth::user()->id)
                             <form action='/comments/{{ $comment->id }}/delete' method="POST">
                                 {{ csrf_field() }}

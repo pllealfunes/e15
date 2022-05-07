@@ -78,11 +78,6 @@ class PostController extends Controller
 
         $comments = Comment::where('post_id', '=', $id)->get();
 
-        $commentAuthor = '';
-        foreach ($comments as $comment) {
-            $commentAuthor = User::where('id','=', $comment->user_id)->first();
-        }
-
         if (!$post) {
             return redirect('/posts/show')->with(['flash-alert' => 'Post not found.']);
         }
@@ -90,8 +85,7 @@ class PostController extends Controller
         return view('/posts/show', [
             'post' => $post,
             'postAuthor' => $postAuthor,
-            'comments' => $comments,
-            'commentAuthor' => $commentAuthor,
+            'comments' => $comments
         ]);
     }
 
@@ -129,13 +123,5 @@ class PostController extends Controller
         $post->delete();
 
         return redirect('/');
-    }
-
-    /**
-     * GET /posts/filter
-     */
-    public function filter()
-    {
-        
     }
 }

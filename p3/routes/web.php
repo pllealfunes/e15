@@ -4,10 +4,13 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PracticeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\CategoryController;
 
 Route::any('/practice/{n?}', [PracticeController::class, 'index']);
 
 Route::get('/', [PostController::class, 'index']);
+
+Route::get('/category/{category}', [CategoryController::class, 'index']);
 
 Route::group(['middleware' => 'auth'], function () {
 Route::get('/posts/create', [PostController::class, 'create']);
