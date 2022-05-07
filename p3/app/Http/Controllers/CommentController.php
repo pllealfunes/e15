@@ -38,7 +38,7 @@ class CommentController extends Controller
         # Before we delete this post we first have to delete
         # any relationships connected to this user
 
-        $comment->users()->dissociate();
+        $comment->user()->dissociate();
 
         $comment->delete();
 

@@ -74,7 +74,6 @@ class PostController extends Controller
     public function show($id)
     {
         $post = Post::find($id);
-        $postAuthor = User::where('id','=',$post->user_id)->first();
 
         $comments = Comment::where('post_id', '=', $id)->get();
 
@@ -84,7 +83,6 @@ class PostController extends Controller
 
         return view('/posts/show', [
             'post' => $post,
-            'postAuthor' => $postAuthor,
             'comments' => $comments
         ]);
     }

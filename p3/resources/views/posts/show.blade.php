@@ -10,7 +10,7 @@
         Post not found. <a href='/'>Check out the other posts...</a>
     @else
         <h1>{{ $post->title }}</h1>
-        <p>Written by: {{ $postAuthor->name }}</p>
+        <p>Written by: {{ $post->user->name }}</p>
         <p>Category: {{ $post->category }}
         <p>
 
@@ -54,7 +54,7 @@
             @if (count($comments) > 0)
                 <ul>
                     @foreach ($comments as $comment)
-                        <li>{{ $comment->comment }} - by {{ $comment->users }}</li>
+                        <li>{{ $comment->comment }} - by {{ $comment->user->name }}</li>
                         @if (Auth::user() && $comment->user_id == Auth::user()->id)
                             <form action='/comments/{{ $comment->id }}/delete' method="POST">
                                 {{ csrf_field() }}
