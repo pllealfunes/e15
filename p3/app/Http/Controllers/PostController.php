@@ -40,7 +40,7 @@ class PostController extends Controller
         $post->save();
 
         
-        return redirect('/posts/create')->with(['flash-alert' => 'Your post was added.']);
+        return redirect('/posts/create')->with(['flash-alert' => 'Your Post was Added.']);
     }
 
    
@@ -52,18 +52,8 @@ class PostController extends Controller
     {
         $posts = Post::orderBy('created_at', 'DESC')->get();
 
-        $categories = [
-           "Physical",
-           "Creative",
-           "Mental",
-           "Food",
-           "Collecting",
-           "Games"
-        ];
-        
         return view('/welcome', [
-            'posts' => $posts,
-            'categories' => $categories
+            'posts' => $posts
         ]);
     }
 
@@ -78,7 +68,7 @@ class PostController extends Controller
         $comments = Comment::where('post_id', '=', $id)->get();
 
         if (!$post) {
-            return redirect('/posts/show')->with(['flash-alert' => 'Post not found.']);
+            return redirect('/')->with(['flash-alert' => 'Post not found.']);
         }
 
         return view('/posts/show', [
@@ -116,10 +106,10 @@ class PostController extends Controller
         # Before we delete this post we first have to delete
         # any relationships connected to this user
 
-        $post->users()->detach();
+        $post->user()->dissociate();
 
         $post->delete();
 
-        return redirect('/');
+        return redirect('/')->with(['flash-alert' => 'Your Post was Deleted.']);
     }
 }

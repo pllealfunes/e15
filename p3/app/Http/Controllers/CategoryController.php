@@ -17,7 +17,7 @@ class CategoryController extends Controller
     
     public function index($category)
     {
-        $posts = Post::where('category','=',$category)->get();
+        $posts = Post::where('category','=',$category)->orderBy('created_at', 'DESC')->get();
         $categories = Post::select('category')->get();
         
         return view('/categories/category', [

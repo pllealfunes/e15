@@ -5,6 +5,10 @@
 @endsection
 
 @section('content')
+    @if (session('flash-alert'))
+        <div class='flash-alert'>{{ session('flash-alert') }}</div>
+    @endif
+
     <h1>Create a new post</h1>
 
     <form method='POST' action='/posts'>

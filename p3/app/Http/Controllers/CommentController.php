@@ -28,7 +28,7 @@ class CommentController extends Controller
         $comment->save();
 
         
-        return redirect()->back()->with(['flash-alert' => 'Your comment was added.']);
+        return redirect()->back()->with(['flash-alert' => 'Your Comment was Added.']);
     }
 
     public function destroy($id)
@@ -43,7 +43,7 @@ class CommentController extends Controller
         $comment->delete();
 
         return redirect()->back()->with([
-            'flash-alert' => 'Your comment was removed.'
+            'flash-alert' => 'Your comment was deleted.'
         ]);
     }
 

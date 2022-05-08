@@ -9,6 +9,10 @@
 @endsection
 
 @section('content')
+    @if (session('flash-alert'))
+        <div class='flash-alert'>{{ session('flash-alert') }}</div>
+    @endif
+
     @if (Auth::user())
         <h2>
             Hello {{ Auth::user()->name }}!

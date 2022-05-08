@@ -10,7 +10,7 @@
         Post not found. <a href='/'>Check out the other posts...</a>
     @else
         <h1>{{ $post->title }}</h1>
-        <p>Written by: {{ $post->user->name }}</p>
+        <p>Written by: <a href='/profile/{{ $post->user_id }}'>{{ $post->user->name }}</a></p>
         <p>Category: {{ $post->category }}
         <p>
 
@@ -28,33 +28,40 @@
         </p>
 
         <h2>Comments</h2>
-        <h2>Create a new comment</h2>
+        @if (Auth::user())
+            <h2>Create a new comment</h2>
 
-        <form method='POST' action='/posts/{{ $post->id }}/comments'>
-            <div class='details'>* Required fields</div>
-            {{ csrf_field() }}
-
-            <input type="hidden" name="post_id" id="post_id" value="{{ $post->id }}" />
-
-            <label for='comment'>Comment</label>
-            <textarea test='comment-textarea' name='comment'>{{ old('comment') }}</textarea>
-            @include('includes/error-field', ['fieldName' => 'comment'])
-
-            <button test='submit-button' type='submit' class='btn btn-primary'>New Comment</button>
-
-            @if (count($errors) > 0)
-                <div test='global-error-feedback' class='alert alert-danger'>
-                    Please correct the above errors.
-                </div>
+            @if (session('flash-alert'))
+                <div class='flash-alert'>{{ session('flash-alert') }}</div>
             @endif
 
-        </form>
+            <form method='POST' action='/posts/{{ $post->id }}/comments'>
+                <div class='details'>* Required fields</div>
+                {{ csrf_field() }}
+
+                <input type="hidden" name="post_id" id="post_id" value="{{ $post->id }}" />
+
+                <label for='comment'>Comment</label>
+                <textarea test='comment-textarea' name='comment'>{{ old('comment') }}</textarea>
+                @include('includes/error-field', ['fieldName' => 'comment'])
+
+                <button test='submit-button' type='submit' class='btn btn-primary'>New Comment</button>
+
+                @if (count($errors) > 0)
+                    <div test='global-error-feedback' class='alert alert-danger'>
+                        Please correct the above errors.
+                    </div>
+                @endif
+
+            </form>
+        @endif
 
         <div id='comments'>
             @if (count($comments) > 0)
                 <ul>
                     @foreach ($comments as $comment)
-                        <li>{{ $comment->comment }} - by {{ $comment->user->name }}</li>
+                        <li>{{ $comment->comment }} - by <a
+                                href='/profile/{{ $comment->user_id }}'>{{ $comment->user->name }}</a></li>
                         @if (Auth::user() && $comment->user_id == Auth::user()->id)
                             <form action='/comments/{{ $comment->id }}/delete' method="POST">
                                 {{ csrf_field() }}
