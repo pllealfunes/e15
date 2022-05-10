@@ -11,6 +11,7 @@
     @else
         <h2>{{ $post->title }}</h2>
         <p>Written by: <a test='user-profile-link' href='/profile/{{ $post->user_id }}'>{{ $post->user }}</a></p>
+
         <p>Category: {{ $post->category }}
         <p>
 
