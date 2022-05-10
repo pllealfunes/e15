@@ -23,7 +23,7 @@
         <label for='category'>* Category</label>
         <select test='category-dropdown' name='category'>
             <option selected disabled>Choose one...</option>
-            <option value=" physical" {{ old('category') == 'physical' ? 'selected' : '' }}>Physical
+            <option value="physical" {{ old('category') == 'physical' ? 'selected' : '' }}>Physical
             </option>
             <option value="creative" {{ old('category') == 'creative' ? 'selected' : '' }}>Creative
             </option>
@@ -39,7 +39,7 @@
         <textarea test='post-textarea' name='post'>{{ old('post') }}</textarea>
         @include('includes/error-field', ['fieldName' => 'post'])
 
-        <button test='submit-button' type='submit' class='btn btn-primary'>New Post</button>
+        <button test='new-post-button' type='submit' class='btn btn-primary'>New Post</button>
 
         @if (count($errors) > 0)
             <div test='global-error-feedback' class='alert alert-danger'>

@@ -46,7 +46,7 @@
                 <textarea test='comment-textarea' name='comment'>{{ old('comment') }}</textarea>
                 @include('includes/error-field', ['fieldName' => 'comment'])
 
-                <button test='submit-button' type='submit' class='btn btn-primary'>New Comment</button>
+                <button test='new-comment-button' type='submit' class='btn btn-primary'>New Comment</button>
 
                 @if (count($errors) > 0)
                     <div test='global-error-feedback' class='alert alert-danger'>
@@ -69,7 +69,7 @@
                                 {{ method_field('DELETE') }}
 
                                 <button type='submit' class='btn btn-danger btn-small'
-                                    test='confirm-delete-button'>Delete</button>
+                                    test='delete-comment-button'>Delete</button>
                             </form>
                         @endif
                     @endforeach

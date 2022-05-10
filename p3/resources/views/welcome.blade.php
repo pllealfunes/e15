@@ -23,7 +23,7 @@
     <h3>Filter by Category<h3>
             <ul class='category-nav'>
                 @foreach ($posts as $post)
-                    <li> <a test='post-link-{{ $post->id }}' href='/category/{{ $post->category }}'>
+                    <li> <a test='post-link' {{ $post->id }}' href='/category/{{ $post->category }}'>
                             <h3>{{ $post->category }}</h3>
                         </a>
                     </li>
