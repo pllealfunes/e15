@@ -28,6 +28,7 @@
         </p>
 
         <h3 id="comments-title">Comments</h3>
+        <p id="login-new-user-comment">Login to add a comment!</p>
         @if (Auth::user())
             <h4 id="new-comment-title">Create a new comment</h4>
 
@@ -74,6 +75,8 @@
                     @endforeach
                 </ul>
         </div>
+    @else
+        <p>No comments have been added yet...Login to add one!</p>
     @endif
     @endif
 @endsection

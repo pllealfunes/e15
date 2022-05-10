@@ -247,7 +247,8 @@ POSTS
 COMMENTS
 -----------------------------------------------------*/
 #comments-title,
-#new-comment-title {
+#new-comment-title,
+#login-new-user-comment {
     text-align: left;
     margin-bottom: 3rem;
 }
