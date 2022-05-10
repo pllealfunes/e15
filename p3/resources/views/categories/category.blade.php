@@ -13,7 +13,7 @@
     <h3>Filter by Category<h3>
             <ul class='category-nav'>
                 @foreach ($categories as $category)
-                    <li> <a class='post' href='/category/{{ $category->category }}'>
+                    <li> <a test='category-post' class='post' href='/category/{{ $category->category }}'>
                             <h3>{{ $category->category }}</h3>
                         </a>
                     </li>

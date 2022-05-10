@@ -10,7 +10,7 @@
         Post not found. <a href='/'>Check out the other posts...</a>
     @else
         <h2>{{ $post->title }}</h2>
-        <p>Written by: <a href='/profile/{{ $post->user_id }}'>{{ $post->user->name }}</a></p>
+        <p>Written by: <a test='user-profile-link' href='/profile/{{ $post->user_id }}'>{{ $post->user }}</a></p>
         <p>Category: {{ $post->category }}
         <p>
 
@@ -22,13 +22,12 @@
                     {{ csrf_field() }}
                     {{ method_field('DELETE') }}
 
-                    <button type='submit' class='btn btn-danger btn-small' test='confirm-delete-button'>Delete</button>
+                    <button test='delete-post-button' type='submit' class='btn btn-danger btn-small'>Delete</button>
                 </form>
             @endif
         </p>
 
         <h3 id="comments-title">Comments</h3>
-        <p id="login-new-user-comment">Login to add a comment!</p>
         @if (Auth::user())
             <h4 id="new-comment-title">Create a new comment</h4>
 
@@ -55,6 +54,8 @@
                 @endif
 
             </form>
+        @else
+            <p id="login-new-user-comment">Login to add a comment!</p>
         @endif
 
         <div id='comments'>

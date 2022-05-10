@@ -46,7 +46,7 @@ class CommentController extends Controller
         $comment->delete();
 
         return redirect()->back()->with([
-            'flash-alert' => 'Your comment was deleted.'
+            'flash-alert' => 'Your Comment was deleted.'
         ]);
     }
 

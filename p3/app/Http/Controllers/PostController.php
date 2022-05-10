@@ -90,7 +90,7 @@ class PostController extends Controller
         # Before we delete this post we first have to delete
         # any relationships connected to this user
 
-        $post->user()->dissociate();
+        $post->user()->detach();
 
         $post->delete();
 
