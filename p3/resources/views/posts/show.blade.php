@@ -9,7 +9,7 @@
     @if (!$post)
         Post not found. <a href='/'>Check out the other posts...</a>
     @else
-        <h1>{{ $post->title }}</h1>
+        <h2>{{ $post->title }}</h2>
         <p>Written by: <a href='/profile/{{ $post->user_id }}'>{{ $post->user->name }}</a></p>
         <p>Category: {{ $post->category }}
         <p>
@@ -27,9 +27,9 @@
             @endif
         </p>
 
-        <h2>Comments</h2>
+        <h3 id="comments-title">Comments</h3>
         @if (Auth::user())
-            <h2>Create a new comment</h2>
+            <h4 id="new-comment-title">Create a new comment</h4>
 
             @if (session('flash-alert'))
                 <div class='flash-alert'>{{ session('flash-alert') }}</div>
@@ -58,9 +58,9 @@
 
         <div id='comments'>
             @if (count($comments) > 0)
-                <ul>
+                <ul id="comments-list">
                     @foreach ($comments as $comment)
-                        <li>{{ $comment->comment }} - by <a
+                        <li id="comment">{{ $comment->comment }} - by <a
                                 href='/profile/{{ $comment->user_id }}'>{{ $comment->user->name }}</a></li>
                         @if (Auth::user() && $comment->user_id == Auth::user()->id)
                             <form action='/comments/{{ $comment->id }}/delete' method="POST">

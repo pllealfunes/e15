@@ -1,7 +1,7 @@
 @extends('layouts/main')
 
 @section('title')
-    All Books
+    Hobbyist Home
 @endsection
 
 @section('head')
@@ -19,11 +19,11 @@
         </h2>
     @endif
 
-    <h1 test='all-books-heading'>All Posts</h1>
+    <h2 test='all-posts-heading'>All Posts</h2>
     <h3>Filter by Category<h3>
-            <ul>
+            <ul class='category-nav'>
                 @foreach ($posts as $post)
-                    <li> <a test='post-link-{{ $post->id }}' class='post' href='/category/{{ $post->category }}'>
+                    <li> <a test='post-link-{{ $post->id }}' href='/category/{{ $post->category }}'>
                             <h3>{{ $post->category }}</h3>
                         </a>
                     </li>
@@ -33,7 +33,7 @@
             @if (count($posts) == 0)
                 <p>No posts have been added yet...</p>
             @else
-                <div id='posts'>
+                <div class='posts'>
                     @foreach ($posts as $post)
                         <a test='post-link-{{ $post->id }}' class='post' href='/posts/{{ $post->id }}'>
                             <h3>{{ $post->title }}</h3>

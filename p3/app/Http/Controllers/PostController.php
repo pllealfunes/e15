@@ -78,23 +78,7 @@ class PostController extends Controller
     }
 
     
-    /**
-    * Asks user to confirm they want to delete the post
-    * GET /posts/{id}/delete
-    */
-    public function delete($id)
-    {
-        $post = Post::find($id);
-
-        if (!$post) {
-            return redirect('/posts')->with([
-                'flash-alert' => 'Post not found'
-            ]);
-        }
-
-        return view('posts/delete', ['post' => $post]);
-    }
-
+ 
     /**
     * Deletes the post
     * DELETE /posts/{id}/delete

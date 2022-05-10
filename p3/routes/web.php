@@ -1,14 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PracticeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProfileController;
-
-
-Route::any('/practice/{n?}', [PracticeController::class, 'index']);
 
 Route::get('/', [PostController::class, 'index']);
 

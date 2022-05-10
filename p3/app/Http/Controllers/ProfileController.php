@@ -4,14 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
-use App\Models\Comment;
 use App\Models\User;
 
 class ProfileController extends Controller
 {
 /**
-    * POST /comments
-    * Process the form for adding a new comment
+    * GET User profile /profile/{id}
+    * and show their posts from descending order
     */
     
     

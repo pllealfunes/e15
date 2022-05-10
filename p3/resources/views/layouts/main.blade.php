@@ -16,14 +16,12 @@
 <body>
 
     <header>
+        <h1>Hobbyist</h1>
         <nav>
             <ul>
                 <li><a href='/'>Home</a></li>
-                <li><a href='/books'>All Books</a></li>
-                <li><a href='/list'>Your list</a></li>
-                <li><a href='/contact'>Contact</a></li>
                 @if (!Auth::user())
-                    <a href='/login' test='login-link'>Login</a>
+                    <li><a href='/login' test='login-link'>Login</a></li>
                 @else
                     <li><a href='/posts/create' test='newpost-link'>New Post</a></li>
                     <form method='POST' id='logout' action='/logout'>

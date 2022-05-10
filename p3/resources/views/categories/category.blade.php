@@ -11,7 +11,7 @@
 @section('content')
     <h1 test='all-books-heading'>All Posts</h1>
     <h3>Filter by Category<h3>
-            <ul>
+            <ul class='category-nav'>
                 @foreach ($categories as $category)
                     <li> <a class='post' href='/category/{{ $category->category }}'>
                             <h3>{{ $category->category }}</h3>

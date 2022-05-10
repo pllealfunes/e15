@@ -3,9 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Post;
 use App\Models\Comment;
-use App\Models\User;
 
 class CommentController extends Controller
 {
@@ -30,6 +28,11 @@ class CommentController extends Controller
         
         return redirect()->back()->with(['flash-alert' => 'Your Comment was Added.']);
     }
+
+   /**
+    * Deletes the post
+    * DELETE /comments/{id}/delete
+    */
 
     public function destroy($id)
     {
