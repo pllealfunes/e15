@@ -25,4 +25,4 @@
 
 
 ## Tests
-[Getting Started](image.png)
+![](image.png)
