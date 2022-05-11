@@ -17,12 +17,18 @@
 
 + My application has 3 tables in total (`users`, `posts`, `comments`)
 + There's a many-to-many relationship between `users` and `posts`
-+ There's a one-to-many relationship between `users` and `comments`
++ There's a many-to-many relationship between `users` and `comments`
 + There's a one-to-many relationship between `posts` and `comments`
++ There's a one-to-many relationship between `posts` and `users`
 
 ## Outside resources
-* [Delete a user relationship from one-to-many relationship9]https://stackoverflow.com/questions/49323458/can-detach-method-also-be-applied-to-one-to-many-relationship-in-laravel)
+* [Delete a user relationship from one-to-many relationship9](https://stackoverflow.com/questions/49323458/can-detach-method-also-be-applied-to-one-to-many-relationship-in-laravel)
+* [Solved 'Cannot delete or update a parent row: a foreign key constarint fails' Error](https://laravel.com/docs/5.1/migrations#foreign-key-constraints)
 
 
 ## Tests
-![](image.png)
+![Test1](./public/images/test1.png)
+![Test2](./public/images/test2.png)
+![Test3](./public/images/test3.png)
+![Test4](./public/images/test4.png)
+![Test5](./public/images/test5.png)
