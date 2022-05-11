@@ -25,4 +25,4 @@
 
 
 ## Tests
-*Include the full output of running `codecept run acceptance --steps`. If you’re taking this course for undergraduate credit and are opting out from testing, simply put "undergraduate - opting out" in this section*
+[Getting Started](image.png)

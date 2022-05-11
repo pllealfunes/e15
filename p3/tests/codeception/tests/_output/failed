@@ -1,6 +1,0 @@
-tests/acceptance/ShowPostPageCest.php:showPostNotLogin
-tests/acceptance/ShowPostPageCest.php:goUserProfile
-tests/acceptance/ShowPostPageCest.php:loginFailComment
-tests/acceptance/ShowPostPageCest.php:loginAddComment
-tests/acceptance/ShowPostPageCest.php:loginDeleteComment
-tests/acceptance/ShowPostPageCest.php:loginDeletePost
