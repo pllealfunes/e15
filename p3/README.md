@@ -1,6 +1,7 @@
 # Project 3: Hobbyist Blog
 + By: Paula Leal Funes
 + Production URL: http://e15p3.lefthandedcat.me/
++ Login as Jill Harvard or Jamal Harvard using the password: asdfasdf
 
 ## Feature summary
 + All Users can view individual posts and related comments 
