@@ -17,4 +17,8 @@ ENV LOG_CHANNEL stderr
 # Allow composer to run as root
 ENV COMPOSER_ALLOW_SUPERUSER 1
 
+<<<<<<< HEAD
 CMD ["/start.sh"]
+=======
+CMD ["/start.sh"]
+>>>>>>> 376b489b98362dfc93e5218c5db595666170e0a3

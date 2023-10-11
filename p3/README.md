@@ -1,6 +1,6 @@
 # Project 3: Hobbyist Blog
 + By: Paula Leal Funes
-+ Production URL: http://e15p3.lefthandedcat.me/
++ Production URL: http://142.93.198.94/
 + Login as jill@harvard.edu or jamal@harvard.edu using the password: asdfasdf
 
 ## Feature summary
@@ -27,7 +27,7 @@
 * [Solved 'Cannot delete or update a parent row: a foreign key constarint fails' Error](https://laravel.com/docs/5.1/migrations#foreign-key-constraints)
 
 
-## Tests
+## Codeception Tests
 ![Test1](./public/images/test1.png)
 ![Test2](./public/images/test2.png)
 ![Test3](./public/images/test3.png)
