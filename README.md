@@ -1,3 +1,3 @@
 # e15
 Course work for CSCI E-15
-By: Paula Leal Funes
+Checkout project p3 Laravel Hobbyist
